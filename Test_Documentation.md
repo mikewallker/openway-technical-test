@@ -59,7 +59,7 @@ This test suite covers the core shopping cart functionality, input validation, b
 
 **Expected Result:**
 - The shopping cart page displays the added book.
-- The cart counter increases by 1.
+- The cart subtotal increases by the book price.
 
 **Actual Result:**
 - To be filled during test execution.
