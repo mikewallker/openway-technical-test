@@ -105,6 +105,17 @@ public class PeriplusCartTest {
         }
     }
 
+    /**
+     * Helper Method: Clears the cart to ensure test idempotency.
+     * * ARCHITECTURAL NOTE:
+     * In a robust testing environment, establishing preconditions via the UI creates an
+     * anti-pattern (test dependency), where the "Add to Cart" test could falsely fail
+     * if the "Remove from Cart" UI is broken.
+     * * Ideally, this initial state reset would be handled via a direct, invisible backend
+     * REST API call (e.g., DELETE /api/v1/users/cart) to keep the UI test atomic. However,
+     * as an external candidate conducting a black-box test, we can't implement it.
+     */
+
     private void clearCart() {
         // 1. Updated exact cart URL
         driver.get("https://www.periplus.com/checkout/cart");
