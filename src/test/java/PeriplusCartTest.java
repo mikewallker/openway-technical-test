@@ -63,14 +63,38 @@ public class PeriplusCartTest {
         WebElement firstProduct = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".single-product a")));
         firstProduct.click();
 
-        WebElement addToCartBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".btn-add-to-cart")));
+        // Grab the exact title and price of the book before adding it
+        WebElement titleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".h2")));
+        String expectedTitle = titleElement.getText();
+
+        WebElement priceElement = driver.findElement(By.cssSelector(".quickview-price"));
+        String expectedPrice = priceElement.getText();
+
+        System.out.println("Adding book: " + expectedTitle + " | Price: " + expectedPrice);
+
+        // Click Add to Cart
+        WebElement addToCartBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".btn btn-add-to-cart")));
         addToCartBtn.click();
 
-        // 5. Verify successful addition (e.g., checking a success message or cart counter)
-        WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert-success")));
-        Assert.assertTrue(successMessage.getText().contains("Success: You have added"), "Product was not successfully added to the cart.");
+        // 5. Navigate to the Cart Page
+        // Wait for the success banner just to ensure the system registered the click before we navigate away
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ti-check modal-check")));
 
-        System.out.println("Test Passed: Product successfully added to cart!");
+        // Find the shopping cart button at the top of the screen and click it
+        WebElement cartIcon = wait.until(ExpectedConditions.elementToBeClickable(By.id("show-your-cart_mobile")));
+        cartIcon.click();
+
+        // 6. The Deep Verification
+        // Check if the title exists inside the cart table
+        WebElement cartTable = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".table-bordered"))); // Example locator for the cart table
+        String cartText = cartTable.getText();
+
+        Assert.assertTrue(cartText.contains(expectedTitle), "Failure: The book title was not found in the shopping cart!");
+
+        // Check if the expected price is reflected in the cart
+        Assert.assertTrue(cartText.contains(expectedPrice), "Failure: The expected price was not found in the cart subtotal!");
+
+        System.out.println("Test Passed: Product exists in cart and price matches!");
     }
 
     @AfterClass

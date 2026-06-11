@@ -50,6 +50,8 @@ This test suite covers the core shopping cart functionality, input validation, b
 **Preconditions:**
 - The user is on the Periplus homepage.
 - The user is logged in.
+- The user's shopping cart is completely empty.
+- There is at least one product available on the website with stock > 0.
 
 **Test Steps:**
 1. Search for a specific book (e.g., "Harry Potter").
