@@ -58,7 +58,7 @@ public class PeriplusCartTest {
 
         // 1. Search for a product
         WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("filter_name")));
-        searchBox.sendKeys("Harry Potter");
+        searchBox.sendKeys("book");
         searchBox.submit();
 
         // Wait for the loading overlay to completely disappear
