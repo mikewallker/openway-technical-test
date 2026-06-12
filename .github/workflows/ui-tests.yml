@@ -22,22 +22,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Setup Chrome Browser
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-
       - name: Run Maven Tests
         env:
           PERIPLUS_EMAIL: ${{ secrets.PERIPLUS_EMAIL }}
           PERIPLUS_PASSWORD: ${{ secrets.PERIPLUS_PASSWORD }}
-          CI: true
         run: mvn clean test
-
-      - name: Upload Test Reports on Failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: surefire-reports
-          path: target/surefire-reports/
-          retention-days: 7
