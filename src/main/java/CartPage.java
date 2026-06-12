@@ -2,13 +2,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 import java.util.List;
 
-public class CartPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class CartPage extends BasePage {
 
     // Locators
     private By emptyMessageLocator = By.xpath("//div[@class='content' and contains(text(), 'Your shopping cart is empty')]");
@@ -19,8 +15,7 @@ public class CartPage {
     private By cartItemPriceLocator = By.xpath("//div[contains(@class, 'row-cart-product')]//div[@class='row' and contains(text(), 'Rp')]");
 
     public CartPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
     }
 
     public String getCartItemTitle() {
@@ -42,6 +37,7 @@ public class CartPage {
         
         return rawPriceText;
     }
+
 
     public void clearCart() {
         driver.get("https://www.periplus.com/checkout/cart");

@@ -1,12 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 
-public class ProductDetailsPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class ProductDetailsPage extends BasePage {
 
     // Locators
     private By titleElement = By.tagName("h2");
@@ -15,8 +11,7 @@ public class ProductDetailsPage {
     private By successModal = By.cssSelector(".ti-check.modal-check");
 
     public ProductDetailsPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
     }
 
     public String getProductTitle() {
@@ -26,6 +21,7 @@ public class ProductDetailsPage {
     public String getProductPrice() {
         return driver.findElement(priceElement).getText();
     }
+
 
     public void addToCart() {
         wait.until(ExpectedConditions.elementToBeClickable(addToCartBtn)).click();

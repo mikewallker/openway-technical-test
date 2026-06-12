@@ -1,12 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 
-public class LoginPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class LoginPage extends BasePage {
 
     // Locators
     private By signInLink = By.linkText("Sign In");
@@ -16,8 +12,7 @@ public class LoginPage {
     private By searchBox = By.name("filter_name"); // To verify login success
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
     }
 
     public void login(String email, String password) {

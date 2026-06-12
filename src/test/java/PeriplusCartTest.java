@@ -60,7 +60,9 @@ public class PeriplusCartTest {
         // Get expected details from the Product page
         String expectedTitle = productDetailsPage.getProductTitle();
         String expectedPrice = productDetailsPage.getProductPrice();
-        System.out.println("Testing addition of book: " + expectedTitle);
+        int initialCartCount = productDetailsPage.getCartBadgeCount();
+        System.out.println("Testing addition of book: " + expectedTitle + " | Initial Cart Count: " + initialCartCount);
+        
 
         // 3. Click Add to Cart
         productDetailsPage.addToCart();
@@ -71,12 +73,17 @@ public class PeriplusCartTest {
         // 5. Verify the cart contents
         String actualTitle = cartPage.getCartItemTitle();
         String actualPrice = cartPage.getCartItemPrice();
+        int finalCartCount = cartPage.getCartBadgeCount();
 
         Assert.assertEquals(actualTitle, expectedTitle, 
                 "Failure: The title in the cart does not match the added product!");
                 
         Assert.assertEquals(actualPrice, expectedPrice, 
                 "Failure: The price in the cart does not match the added product!");
+
+        Assert.assertEquals(finalCartCount, initialCartCount + 1, 
+                "Failure: The cart item count did not increase by exactly 1!");
+                
         System.out.println("Test Passed: Product correctly added to cart.");
     }
 
