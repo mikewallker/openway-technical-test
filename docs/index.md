@@ -1,8 +1,5 @@
 # Periplus Shopping Cart Test Documentation
-
-Welcome to the QA Test Strategy and Documentation suite for the Periplus Online Shopping Cart functionality. 
----
-
+ 
 ## Documentation Structure
 
 The documentation is organized into three distinct, logical sections accessible via the navigation tabs:
