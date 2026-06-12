@@ -1,167 +1,953 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shopping Cart Test Plan and Automation">
+      
+      
+        <meta name="author" content="Your Name">
+      
+      
+      
+        <link rel="prev" href="../core-tests/">
+      
+      
+      
         
-        
-        
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Extended matrix - My Docs</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../css/brands.min.css" rel="stylesheet">
-        <link href="../css/solid.min.css" rel="stylesheet">
-        <link href="../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>3. Extended Coverage Matrix - Periplus QA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="..">My Docs</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href=".." class="nav-link">Welcome to MkDocs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../components/" class="nav-link">Components</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../core-tests/" class="nav-link">Core tests</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./" class="nav-link active" aria-current="page">Extended matrix</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../core-tests/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#global-preconditions-setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Periplus QA Documentation" class="md-header__button md-logo" aria-label="Periplus QA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Periplus QA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Extended Coverage Matrix
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-            </div>
-        </div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../js/base.js"></script>
-        <script src="../search/main.js"></script>
+      </a>
+    </li>
+  
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../components/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Test Case Components
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../core-tests/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Core Test Cases
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Extended Coverage Matrix
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Periplus QA Documentation" class="md-nav__button md-logo" aria-label="Periplus QA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Periplus QA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Test Case Components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Core Test Cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Extended Coverage Matrix
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Extended Coverage Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#global-preconditions-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Preconditions &amp; Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-coverage-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Coverage Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-coverage-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended Coverage Matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p0-core-critical-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P0 -- Core Critical Path
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-input-validations-business-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P1 -- Input Validations &amp; Business Constraints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p2-asynchronous-sync-state-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P2 -- Asynchronous Sync &amp; State Persistence
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>3. Extended Coverage Matrix</h1>
+
+<p>Repetitive steps have been abstracted into global preconditions, and scenarios are tiered from critical user paths (P0) to asynchronous edge cases (P2).</p>
+<hr />
+<h2 id="global-preconditions-setup">Global Preconditions &amp; Setup</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Target Application</strong></td>
+<td>Any online shopping platform (examples reference Periplus / Tokopedia conventions)</td>
+</tr>
+<tr>
+<td><strong>Default User State</strong></td>
+<td>Unless otherwise stated in a specific precondition column, the user is <strong>authenticated</strong> with a registered account</td>
+</tr>
+<tr>
+<td><strong>Default Cart State</strong></td>
+<td>Unless otherwise stated, the <strong>cart is empty</strong> at the start of each test case</td>
+</tr>
+<tr>
+<td><strong>Default Stock State</strong></td>
+<td>Unless otherwise stated, all target products have <strong>available stock &gt; 0</strong></td>
+</tr>
+<tr>
+<td><strong>Execution Note</strong></td>
+<td><em>Actual Result</em> and <em>Status</em> fields are omitted from this document. Those fields are populated in the live execution log</td>
+</tr>
+<tr>
+<td><strong>ID Convention</strong></td>
+<td>Test IDs are permanent keys and are intentionally non-sequential across priority tiers. The suffix pattern (e.g., <code>002B</code>, <code>002C</code>) indicates a variant of the same base scenario — for example, all <code>002x</code> IDs are add-to-cart variants.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="test-coverage-summary">Test Coverage Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Functional</strong></td>
+<td>Add (logged-in &amp; guest, single &amp; bulk qty, duplicate, PDP qty selector), Remove (single, last item, undo), Update quantity, Multiple items, Partial selection subtotal, Double-click protection</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Non-numeric, float, zero, negative, empty field, extremely large number, exact stock boundary, over-stock</td>
+</tr>
+<tr>
+<td><strong>Business Rules</strong></td>
+<td>Max 10 shops per cart, max 400 total items, shop slot freed on full removal, boundary happy paths</td>
+</tr>
+<tr>
+<td><strong>Inventory Sync</strong></td>
+<td>Product deleted, stock -&gt; 0, partial stock drop, full restock, partial restock (fewer than cart qty), price change, flash sale expiry</td>
+</tr>
+<tr>
+<td><strong>Pricing</strong></td>
+<td>Discounted item subtotal, mixed discounted + full-price subtotal, coupon/promo code, free shipping threshold</td>
+</tr>
+<tr>
+<td><strong>Persistence</strong></td>
+<td>Logout -&gt; re-login, guest browser close/reopen, cross-device (logged-in)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="extended-coverage-matrix">Extended Coverage Matrix</h2>
+<p>The following edge cases and validations have been identified and mapped for coverage. Each scenario is assigned a priority tier to communicate execution order and relative risk.</p>
+<hr />
+<h2 id="p0-core-critical-path">P0 -- Core Critical Path</h2>
+<blockquote>
+<p>These are the fundamental user journeys. If any P0 test fails, the cart feature is considered <strong>fundamentally broken</strong> and must be resolved before other testing continues.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Scenario</th>
+<th>Specific Precondition</th>
+<th>Expected Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-CART-001</td>
+<td>Add standard item to cart</td>
+<td>Cart is empty; product has stock &gt; 0</td>
+<td>Item appears in cart; cart counter increments by 1; subtotal equals item price.</td>
+</tr>
+<tr>
+<td>TC-CART-002B</td>
+<td>Guest user adds item to cart</td>
+<td>User is <strong>not logged in</strong> (guest session)</td>
+<td>Item added successfully without requiring authentication; item displays correct title and price.</td>
+</tr>
+<tr>
+<td>TC-CART-002</td>
+<td>Update quantity to a valid value</td>
+<td>Cart has &gt;=1 item; new quantity is within stock limit</td>
+<td>Item's line total updates correctly (unit price x new qty); cart subtotal recalculates.</td>
+</tr>
+<tr>
+<td>TC-CART-002C</td>
+<td>Add item with custom quantity (&gt;1) from the PDP</td>
+<td>Product has &gt;=5 units in stock</td>
+<td>Item added with quantity 5; line total = unit price x 5; cart subtotal reflects full amount.</td>
+</tr>
+<tr>
+<td>TC-CART-003</td>
+<td>Remove one item from a multi-item cart</td>
+<td>Cart has &gt;=2 items</td>
+<td>Removed item disappears; subtotal decreases by that item's value; remaining items are unaffected.</td>
+</tr>
+<tr>
+<td>TC-CART-003B</td>
+<td>Remove the last remaining item</td>
+<td>Cart has exactly 1 item</td>
+<td>Cart displays an empty-state message (e.g., "Your cart is empty"); counter resets to 0; subtotal shows 0 or is hidden.</td>
+</tr>
+<tr>
+<td>TC-CART-005</td>
+<td>Add a duplicate item already in the cart</td>
+<td>Cart holds exactly 1 unit of Item A</td>
+<td>Quantity for Item A increments to 2; no new duplicate row is created; subtotal doubles.</td>
+</tr>
+<tr>
+<td>TC-CART-006</td>
+<td>Add a second, distinct item to the cart</td>
+<td>Cart already holds 1 unit of Item A</td>
+<td>Cart displays both items as separate rows; quantities and prices for each item are preserved; subtotal = sum of both.</td>
+</tr>
+<tr>
+<td>TC-CART-023</td>
+<td>Subtotal reflects only selected (checked) items</td>
+<td>Cart has &gt;=2 items; both checkboxes selected by default</td>
+<td>After unchecking one item, the subtotal updates to include only the checked item's price; unchecked item remains visible but excluded from total.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="p1-input-validations-business-constraints">P1 -- Input Validations &amp; Business Constraints</h2>
+<blockquote>
+<p>This tier proves boundary awareness and understanding of business rules (e.g., Tokopedia-style shop/item limits).</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Scenario</th>
+<th>Test Action</th>
+<th>Expected Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-CART-002D</td>
+<td>"Add to Cart" button is disabled for an out-of-stock product</td>
+<td>Navigate to a product's PDP where stock = 0</td>
+<td>Button is visually disabled (greyed out) and not clickable; an "Out of Stock" label is shown; item cannot be added by any UI interaction.</td>
+</tr>
+<tr>
+<td>TC-CART-002E</td>
+<td>Pre-order item behaves like a standard item</td>
+<td>Navigate to a pre-order product's PDP and click Add to Cart</td>
+<td>Item added to cart normally; title, quantity, and price display correctly; subtotal updates; no blocking error shown.</td>
+</tr>
+<tr>
+<td>TC-CART-002F</td>
+<td>Double-clicking "Add to Cart" adds the item only once</td>
+<td>Rapidly double-click the <strong>Add to Cart</strong> button</td>
+<td>Item appears exactly once with quantity = 1; button is disabled or shows a loading state after the first click, preventing duplicate submission.</td>
+</tr>
+<tr>
+<td>TC-CART-008</td>
+<td>Zero or negative quantity is rejected</td>
+<td>Enter <code>0</code> or <code>-1</code> into the quantity field and click Update</td>
+<td>Input rejected; quantity resets to 1 (or previous valid value); validation message shown (e.g., "Quantity must be at least 1"); subtotal not recalculated with invalid value.</td>
+</tr>
+<tr>
+<td>TC-CART-009</td>
+<td>Non-numeric text input is rejected</td>
+<td>Enter <code>abc</code> or <code>@#$</code> into the quantity field and click Update</td>
+<td>Input rejected; quantity resets to previous valid integer; validation message shown; no system error.</td>
+</tr>
+<tr>
+<td>TC-CART-009B</td>
+<td>Float / decimal input is rejected</td>
+<td>Enter <code>1.5</code> into the quantity field and click Update</td>
+<td>Input rejected as an invalid non-integer; validation message shown (e.g., "Please enter a whole number"); quantity remains unchanged.</td>
+</tr>
+<tr>
+<td>TC-CART-009C</td>
+<td>Extremely large number is rejected</td>
+<td>Enter <code>99999999999999999999</code> into the quantity field and click Update</td>
+<td>Input rejected; validation message indicates limit reached (e.g., "Quantity limit reached"); no crash, integer overflow, or unexpected behaviour.</td>
+</tr>
+<tr>
+<td>TC-CART-009D</td>
+<td>Empty quantity field treated as removal</td>
+<td>Clear the quantity field entirely and click Update</td>
+<td>System interprets blank as 0; item is removed from cart (equivalent to qty = 0); subtotal updates; remaining items unaffected.</td>
+</tr>
+<tr>
+<td>TC-CART-007</td>
+<td>Quantity exceeding available stock is rejected</td>
+<td>Enter a value equal to (available stock + 1) into the quantity field and click Update</td>
+<td>Input rejected; quantity capped at max available stock; validation message shown (e.g., "Only X units available"); subtotal uses valid quantity only.</td>
+</tr>
+<tr>
+<td>TC-CART-009E</td>
+<td>Quantity exactly equal to available stock is accepted (boundary)</td>
+<td>Item has known stock of N units; enter exactly N in the quantity field</td>
+<td>Input accepted; no validation error shown; line total updates correctly to unit price x N; subtotal reflects new amount.</td>
+</tr>
+<tr>
+<td>TC-CART-010</td>
+<td>Checkout is blocked when the cart is empty</td>
+<td>Navigate to the cart page with no items; click <strong>Checkout</strong></td>
+<td>Checkout does not proceed; warning message displayed (e.g., "Your cart is empty").</td>
+</tr>
+<tr>
+<td>TC-CART-011</td>
+<td>Adding an item from an 11th unique shop is blocked</td>
+<td>Cart already contains items from exactly 10 distinct shops</td>
+<td>Item not added; validation message shown (e.g., "Maximum number of shops reached"); cart contents and counter unchanged.</td>
+</tr>
+<tr>
+<td>TC-CART-011C</td>
+<td>Adding an item from a 10th unique shop succeeds (boundary)</td>
+<td>Cart contains items from exactly 9 distinct shops</td>
+<td>Item added successfully; no shop-limit error triggered; cart now shows items from 10 distinct shops.</td>
+</tr>
+<tr>
+<td>TC-CART-011B</td>
+<td>Removing all items from one shop frees the slot for a new shop</td>
+<td>Cart has items from exactly 10 shops; remove all items from 1 shop</td>
+<td>Cart now holds 9 distinct shops; adding an item from a previously blocked new shop succeeds; no shop-limit error shown.</td>
+</tr>
+<tr>
+<td>TC-CART-012</td>
+<td>Adding from an existing shop is not blocked by the shop count</td>
+<td>Cart holds 20 items all from Shop A</td>
+<td>New item from the same Shop A added successfully; no shop-limit validation triggered (limit applies to distinct shops, not item count).</td>
+</tr>
+<tr>
+<td>TC-CART-013</td>
+<td>Increasing a single item's quantity past 400 is blocked</td>
+<td>Cart has 1 item with quantity = 400 (the total maximum)</td>
+<td>Increasing quantity to 401 is rejected; validation message shown; total cart quantity remains 400.</td>
+</tr>
+<tr>
+<td>TC-CART-014</td>
+<td>Increasing quantity past 400 across multiple items is blocked</td>
+<td>Cart has Item A: qty 200 and Item B: qty 200 (total = 400)</td>
+<td>Increasing either item's quantity by 1 is rejected; validation message shown; total cart quantity remains 400.</td>
+</tr>
+<tr>
+<td>TC-CART-015</td>
+<td>Adding a new item when total quantity is at 400 is blocked</td>
+<td>Cart contains a single item with quantity = 400</td>
+<td>New item is not added; warning message shown (e.g., "Maximum cart capacity reached"); total cart quantity remains 400.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="p2-asynchronous-sync-state-persistence">P2 -- Asynchronous Sync &amp; State Persistence</h2>
+<blockquote>
+<p>This tier validates more complex concerns: data that changes underneath the user while they browse, and cart state that must survive across sessions and devices.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Scenario</th>
+<th>Specific Precondition</th>
+<th>Expected Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-CART-016</td>
+<td>Deleted product is automatically removed from cart</td>
+<td>Item in cart is deleted from the seller's catalog via admin/seller panel</td>
+<td>On refresh, item no longer appears in cart; subtotal updates to exclude it; user may see a notification that an item was removed.</td>
+</tr>
+<tr>
+<td>TC-CART-017</td>
+<td>Out-of-stock item moved to non-checkout section</td>
+<td>Item in active cart has its stock set to 0 via admin/seller panel</td>
+<td>On refresh, item moves to a visually separate "out of stock" section; excluded from subtotal; cannot be selected for checkout.</td>
+</tr>
+<tr>
+<td>TC-CART-017B</td>
+<td>Partial stock drop auto-adjusts cart quantity</td>
+<td>Cart holds qty = 7 for an item; admin reduces stock to 5 (not 0)</td>
+<td>Item remains in the active cart; quantity automatically adjusted down to 5; user notified of the adjustment; subtotal recalculated using qty = 5.</td>
+</tr>
+<tr>
+<td>TC-CART-018</td>
+<td>Fully restocked item returns to the active cart</td>
+<td>Item is in the out-of-stock section (stock = 0); admin restocks it to qty &gt; 0</td>
+<td>On refresh, item moves back to the active cart section; becomes selectable; subtotal updates to include it again.</td>
+</tr>
+<tr>
+<td>TC-CART-018B</td>
+<td>Restock with fewer units than saved cart quantity caps the quantity</td>
+<td>Cart holds a saved qty = 10 for an out-of-stock item (stock = 0); admin restocks to only 3 units</td>
+<td>Item returns to active section with qty = 3 (capped at new stock), not the original 10; user notified of the adjustment; subtotal calculated using qty = 3.</td>
+</tr>
+<tr>
+<td>TC-CART-018C</td>
+<td>Price change while item is in cart is reflected on refresh</td>
+<td>Item in cart has a known price (e.g., Rp 150,000); admin updates price to Rp 175,000</td>
+<td>On refresh, cart displays the new price (Rp 175,000); user notified that the price of one or more items has changed; subtotal recalculates using the new price.</td>
+</tr>
+<tr>
+<td>TC-CART-019</td>
+<td>Discounted item uses discounted price in subtotal</td>
+<td>A product has an active discount (e.g., 20% off, strikethrough shown)</td>
+<td>Item displays the discounted price; subtotal increases by the discounted price, not the original; all totals correct.</td>
+</tr>
+<tr>
+<td>TC-CART-019B</td>
+<td>Mixed discounted and full-price items calculate the correct subtotal</td>
+<td>Cart has Item A (discounted: Rp 80,000, was Rp 100,000) and Item B (full-price: Rp 50,000)</td>
+<td>Subtotal = Rp 130,000 (80,000 + 50,000); Item A does not use its original price in any calculation; no mixing of original and discounted prices.</td>
+</tr>
+<tr>
+<td>TC-CART-019C</td>
+<td>Valid coupon / promo code reduces the cart subtotal</td>
+<td>A valid active coupon code is available (e.g., SAVE10 for 10% off); cart has &gt;=1 item</td>
+<td>Coupon accepted; confirmation shown (e.g., "Coupon applied: 10% off"); cart subtotal reduces by the correct discount amount; applied coupon and discount value visibly shown in cart summary.</td>
+</tr>
+<tr>
+<td>TC-CART-019D</td>
+<td>Free shipping threshold indicator updates correctly</td>
+<td>Free shipping threshold = Rp 200,000; cart subtotal is below threshold (e.g., Rp 150,000)</td>
+<td><strong>Below threshold</strong>: shows remaining amount needed (e.g., "Add Rp 50,000 more for free shipping"). <strong>At or above threshold</strong>: indicator confirms free shipping; shipping fee shown as Rp 0.</td>
+</tr>
+<tr>
+<td>TC-CART-019E</td>
+<td>Flash sale expiry reverts item to regular price</td>
+<td>Item in cart was added during a flash sale (e.g., Rp 80,000 vs. regular Rp 120,000); sale expires while item is in cart</td>
+<td>On refresh, item price updates to Rp 120,000; user notified that the price has changed (e.g., "The price of one item has changed"); subtotal recalculates at the regular price.</td>
+</tr>
+<tr>
+<td>TC-CART-020</td>
+<td>Cart persists for a logged-in user after logout and re-login</td>
+<td>Logged-in user has &gt;=1 item in cart</td>
+<td>After logging out and back in with the same credentials, cart contains the same items with original quantities intact.</td>
+</tr>
+<tr>
+<td>TC-CART-021</td>
+<td>Guest cart persists after browser close and reopen</td>
+<td>Guest (not logged in) user has &gt;=1 item in cart</td>
+<td>After fully closing and reopening the browser on the same device, cart items are still present (persisted via browser cookies or local storage); title, qty, and price display correctly.</td>
+</tr>
+<tr>
+<td>TC-CART-022</td>
+<td>Logged-in cart synchronizes across different browsers or devices</td>
+<td>User is logged in on Device A with &gt;=1 item in cart</td>
+<td>Logging in to the same account on Device B shows the identical cart state (same items, quantities, and subtotal); no items missing or duplicated.</td>
+</tr>
+<tr>
+<td>TC-CART-003C</td>
+<td>Undo item removal restores the item</td>
+<td>Remove item from cart; an Undo toast/snackbar appears</td>
+<td>Clicking <strong>Undo</strong> within the notification window restores the item with its original quantity and price; cart counter and subtotal revert to pre-removal values.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-
-    </body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "toc.integrate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
 </html>
