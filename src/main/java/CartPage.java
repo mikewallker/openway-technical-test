@@ -15,18 +15,32 @@ public class CartPage {
     private By removeButtonLocator = By.cssSelector(".btn.btn-cart-remove");
     private By preloader = By.cssSelector(".preloader");
     private By body = By.tagName("body");
+    private By cartItemTitleLocator = By.cssSelector(".row-cart-product .product-name a"); 
+    private By cartItemPriceLocator = By.xpath("//div[contains(@class, 'row-cart-product')]//div[@class='row' and contains(text(), 'Rp')]");
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public void verifyProductInCart(String expectedTitle, String expectedPrice) {
-        wait.withMessage("Failure: The book title was not found in the shopping cart!")
-                .until(ExpectedConditions.textToBePresentInElementLocated(body, expectedTitle));
+    public String getCartItemTitle() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(cartItemTitleLocator))
+                   .getText()
+                   .trim();
+    }
 
-        wait.withMessage("Failure: The expected price was not found in the cart subtotal!")
-                .until(ExpectedConditions.textToBePresentInElementLocated(body, expectedPrice));
+    public String getCartItemPrice() {
+        // This grabs "Rp 669,000 or 1338 Points"
+        String rawPriceText = wait.until(ExpectedConditions.visibilityOfElementLocated(cartItemPriceLocator))
+                                  .getText()
+                                  .trim();
+        
+        // Split the string at " or " and return only the first half ("Rp 669,000")
+        if (rawPriceText.contains(" or ")) {
+            return rawPriceText.split(" or ")[0].trim();
+        }
+        
+        return rawPriceText;
     }
 
     public void clearCart() {

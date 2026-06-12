@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.Assert;
 
 public class PeriplusCartTest {
 
@@ -68,7 +69,14 @@ public class PeriplusCartTest {
         driver.get("https://www.periplus.com/checkout/cart");
 
         // 5. Verify the cart contents
-        cartPage.verifyProductInCart(expectedTitle, expectedPrice);
+        String actualTitle = cartPage.getCartItemTitle();
+        String actualPrice = cartPage.getCartItemPrice();
+
+        Assert.assertEquals(actualTitle, expectedTitle, 
+                "Failure: The title in the cart does not match the added product!");
+                
+        Assert.assertEquals(actualPrice, expectedPrice, 
+                "Failure: The price in the cart does not match the added product!");
         System.out.println("Test Passed: Product correctly added to cart.");
     }
 
