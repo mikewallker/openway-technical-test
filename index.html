@@ -347,6 +347,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#welcome-to-the-qa-test-strategy-and-documentation-suite-for-the-periplus-online-shopping-cart-functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome to the QA Test Strategy and Documentation suite for the Periplus Online Shopping Cart functionality.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#documentation-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -475,23 +486,21 @@
 
 
 <h1 id="periplus-shopping-cart-test-documentation">Periplus Shopping Cart Test Documentation</h1>
-<p>Welcome to the QA Test Strategy and Documentation suite for the Periplus Online Shopping Cart functionality. This comprehensive test plan is structured to balance rigorous coverage with immediate readability for engineering stakeholders. Repetitive steps have been abstracted away, and scenarios are tiered logically from critical user paths down to asynchronous edge cases.</p>
-<hr />
+<h2 id="welcome-to-the-qa-test-strategy-and-documentation-suite-for-the-periplus-online-shopping-cart-functionality">Welcome to the QA Test Strategy and Documentation suite for the Periplus Online Shopping Cart functionality.</h2>
 <h2 id="documentation-structure">Documentation Structure</h2>
 <p>The documentation is organized into three distinct, logical sections accessible via the navigation tabs:</p>
 <ol>
-<li><strong><a href="components/">1. Test Case Components</a>:</strong> Defines the formalized structure utilized for our test design, accompanied by an example of a well-constructed bug report scenario.</li>
-<li><strong><a href="core-tests/">2. Core Test Cases</a>:</strong> Contains full, long-form test cases detailing the critical path user journeys (P0 workflows) such as standard add-to-cart, quantity modification, and item removal.</li>
+<li><strong><a href="components/">1. Test Case Components</a>:</strong> Defines the structure utilized for the test design, accompanied by an example.</li>
+<li><strong><a href="core-tests/">2. Core Test Cases</a>:</strong> Contains test cases detailing the critical path user journeys such as standard add-to-cart, quantity modification, and item removal.</li>
 <li><strong><a href="extended-matrix/">3. Extended Coverage Matrix</a>:</strong> A prioritized coverage matrix mapping out over 30 distinct scenarios, including validation rules, boundary edge cases, business constraints, and asynchronous backend synchronization state behaviors.</li>
 </ol>
 <hr />
 <h2 id="test-id-naming-convention">Test ID Naming Convention</h2>
-<p>To maintain a scalable and traceable test suite, Test IDs are treated as permanent keys. </p>
 <ul>
 <li><strong>Base Scenarios:</strong> Core actions are assigned a base numeric ID (e.g., <code>TC-CART-002</code> for standard quantity updates).</li>
 <li><strong>Variant Scenarios:</strong> Variations or specific edge cases branching off a base scenario share the numeric root but append an alphabetical suffix. For example, the <code>002x</code> series all represent "Add to Cart" or "Cart Input" variants:</li>
 <li><code>TC-CART-002B</code>: Guest user adds to cart</li>
-<li><code>TC-CART-002C</code>: Add custom quantity from PDP</li>
+<li><code>TC-CART-002C</code>: Add custom quantity from PDP (Product Detail Page)</li>
 <li><code>TC-CART-002D</code>: Add out-of-stock item (Blocked)</li>
 </ul>
 <p>This convention allows engineers to group related functionalities together logically, even if their execution priorities differ.</p>
