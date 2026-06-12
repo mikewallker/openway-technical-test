@@ -2,13 +2,43 @@
 
 A standard test case should include:
 
-- **Test Case ID:** A unique identifier (e.g., TC-001).
+- **Test Case ID:** A unique identifier (e.g., TC-CART-001).
 - **Title:** A brief description of what is being tested.
 - **Preconditions:** State of the application required before testing.
 - **Test Steps:** Clear, actionable steps to execute the test.
 - **Expected Result:** The exact behavior expected after executing the steps.
 - **Actual Result:** (Filled during execution) What actually happened.
 - **Status:** Pass/Fail.
+
+Example:
+
+# Test Case ID: TC-AUTH-001
+
+## Title
+Verify successful user login with valid credentials.
+
+## Preconditions
+- The user possesses a registered account with valid credentials.
+- The user is navigated to the application's Login page.
+
+## Test Steps
+1. Enter the valid registered email address into the **Email** input field.
+2. Enter the corresponding valid password into the **Password** input field.
+3. Click the **Sign In** button.
+
+## Expected Result
+- The system successfully authenticates the credentials.
+- The user is redirected to the authenticated Dashboard/Homepage.
+- A **Welcome** confirmation is displayed in the UI.
+
+## Actual Result
+- The credentials were accepted after clicking **Sign In**.
+- The user was **not redirected** to the Dashboard/Homepage and remained on the Login page.
+- No **Welcome** confirmation message was displayed.
+- A browser console error (`500 Internal Server Error`) was observed during the login request.
+
+## Status
+**Failed**
 
 # Part 2.1: Test Case for Scenario B (Periplus Shopping Cart)
 
@@ -30,8 +60,8 @@ This test suite covers the core shopping cart functionality, input validation, b
 - Quantity exceeding available stock
 
 ## Business Rules
-- Maximum 10 shops per cart
-- Maximum 400 total items per cart
+- Maximum 10 shops per cart (reference taken from Tokopedia, one of the biggest E-commerce platform in Indonesia)
+- Maximum 400 total items per cart (reference taken from Tokopedia)
 - Duplicate item handling
 
 ## Inventory Synchronization
@@ -54,7 +84,7 @@ This test suite covers the core shopping cart functionality, input validation, b
 - There is at least one product available on the website with stock > 0.
 
 **Test Steps:**
-1. Search for a specific book (e.g., "Harry Potter").
+1. Search for a book.
 2. Click on the desired book from the search results.
 3. Click the **Add to Cart** button.
 4. Navigate to the Shopping Cart page.
@@ -64,10 +94,10 @@ This test suite covers the core shopping cart functionality, input validation, b
 - The cart subtotal increases by the book price.
 
 **Actual Result:**
-- To be filled during test execution.
+- The application behaved as expected.
 
 **Status:**
-- Pass / Fail
+- Passed
 
 ## Test Case ID: TC-CART-002 
 
@@ -304,7 +334,7 @@ This test suite covers the core shopping cart functionality, input validation, b
 
 ## Test Case ID: TC-CART-012
 
-**Title:** Verify adding another item from an existing shop succeeds even when the cart contains many items.
+**Title:** Verify adding another item from an existing shop succeeds even when the cart contains many items to validate restriction is based on distinct shops, not item count.
 
 **Preconditions:**
 - The user is logged in.
@@ -317,7 +347,6 @@ This test suite covers the core shopping cart functionality, input validation, b
 **Expected Result:**
 - The item is successfully added.
 - No shop-limit validation is triggered.
-- This confirms the restriction is based on distinct shops, not item count.
 
 ## Test Case ID: TC-CART-013
 
@@ -328,7 +357,7 @@ This test suite covers the core shopping cart functionality, input validation, b
 - The cart contains one item with quantity 400.
 
 **Test Steps:**
-1. Increase the item's quantity to 401 or add one more unit of the same item.
+1. Increase the item's quantity to 401.
 
 **Expected Result:**
 - The action is rejected.
@@ -344,6 +373,7 @@ This test suite covers the core shopping cart functionality, input validation, b
 - The cart contains:
     - Item A: quantity 200
     - Item B: quantity 200
+- Both items have sufficient stock.
 
 **Test Steps:**
 1. Attempt to increase either item's quantity by 1.
@@ -355,42 +385,22 @@ This test suite covers the core shopping cart functionality, input validation, b
 
 ## Test Case ID: TC-CART-015
 
-**Title:** Verify a user cannot increase a single item's quantity beyond the maximum cart quantity limit.
+**Title:** Verify a user cannot add a new item when the total cart quantity limit is already reached.
 
 **Preconditions:**
-- The user is logged in.
-- The cart contains an item with available stock greater than 400.
+* The user is logged in.
+* The cart currently contains an item with a quantity of 400 (representing the maximum allowed items in the cart).
 
 **Test Steps:**
-1. Change the item's quantity to 401.
-2. Click **Update**.
+1. Navigate to the product page of a different available item.
+2. Click **Add to Cart** to attempt adding this new item.
 
 **Expected Result:**
-- The action is rejected.
-- An appropriate validation message is displayed.
-- The quantity remains at or below the allowed limit.
+* The action fails, and the new item is not added to the cart.
+* A warning message is displayed indicating that the maximum cart capacity has been reached.
+* The total item quantity in the cart remains at 400.
 
 ## Test Case ID: TC-CART-016
-
-**Title:** Verify cart quantity updates are blocked when the total quantity would exceed 400.
-
-**Preconditions:**
-- The user is logged in.
-- The cart contains:
-    - Item A: quantity 300
-    - Item B: quantity 99
-- Both items have sufficient stock.
-
-**Test Steps:**
-1. Change Item B's quantity from 99 to 101.
-2. Click **Update**.
-
-**Expected Result:**
-- The action is rejected because the total quantity would become 401.
-- An appropriate validation message is displayed.
-- Quantities remain unchanged.
-
-## Test Case ID: TC-CART-017
 
 **Title:** Verify removed products are automatically removed from the shopping cart.
 
@@ -406,7 +416,7 @@ This test suite covers the core shopping cart functionality, input validation, b
 - The deleted item is removed from the cart.
 - The cart subtotal is updated accordingly.
 
-## Test Case ID: TC-CART-018
+## Test Case ID: TC-CART-017
 
 **Title:** Verify out-of-stock items are moved to a non-checkout section.
 
@@ -423,7 +433,7 @@ This test suite covers the core shopping cart functionality, input validation, b
 - The item is excluded from checkout calculations.
 - The item cannot be selected for checkout.
 
-## Test Case ID: TC-CART-019
+## Test Case ID: TC-CART-018
 
 **Title:** Verify restocked items are moved back into the active cart section.
 
@@ -439,7 +449,7 @@ This test suite covers the core shopping cart functionality, input validation, b
 - The item reappears in the active cart section.
 - The item becomes available for checkout again.
 
-## Test Case ID: TC-CART-020
+## Test Case ID: TC-CART-019
 
 **Title:** Verify discounted items contribute the correct discounted amount to the cart subtotal.
 
