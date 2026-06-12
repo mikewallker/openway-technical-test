@@ -1,5 +1,10 @@
 # Open Way Technical Test: QA Automation
 
+**Task 5 Submission**
+The complete solution for Question 5 is contained within this repository:
+* **Test Documentation (Sub-tasks 1 & 2.1):** Hosted live at [https://mikewallker.github.io/openway-technical-test/](https://mikewallker.github.io/openway-technical-test/). The `docs/` folder contains the raw Markdown files for this documentation, and `mkdocs.yml` is the configuration file used to generate the site.
+* **Test Automation (Sub-task 2.2):** The Java/Selenium source code is detailed below.
+
 This repository contains the automated UI test for the Periplus shopping cart feature, implemented using Java, Selenium WebDriver, and TestNG.
 
 ## How to Run the Tests
