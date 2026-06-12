@@ -19,24 +19,7 @@ public class PeriplusCartTest {
     public void setupAndLogin() {
         // 1. Setup Driver
         ChromeOptions options = new ChromeOptions();
-
-        // Check if we are running in GitHub Actions
-        String isCI = System.getenv("CI");
-
-        if (isCI != null && isCI.equals("true")) {
-            // CI Environment: Run invisibly to prevent crashes
-            options.addArguments("--headless=new");
-            options.addArguments("--window-size=1920,1080");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            System.out.println("Running in Headless Mode on CI/CD");
-        } else {
-            // Local Environment: Open the physical browser
-            options.addArguments("--start-maximized");
-            System.out.println("Running in UI Mode Locally");
-        }
-
+        options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
 
         // Initialize Page Objects
@@ -46,22 +29,10 @@ public class PeriplusCartTest {
         productDetailsPage = new ProductDetailsPage(driver);
         cartPage = new CartPage(driver);
 
-        // Load credentials gracefully (ignores missing .env file for CI)
-        Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
-
+        // Load credentials
+        Dotenv dotenv = Dotenv.load();
         String myEmail = dotenv.get("PERIPLUS_EMAIL");
         String myPassword = dotenv.get("PERIPLUS_PASSWORD");
-
-        // Fail-fast validation: Ensure neither variable is null or empty
-        if (myEmail == null || myEmail.trim().isEmpty() ||
-                myPassword == null || myPassword.trim().isEmpty()) {
-
-            // Clean up the driver before crashing so you don't leave zombie Chrome processes
-            if (driver != null) {
-                driver.quit();
-            }
-            throw new IllegalStateException("CRITICAL BOOT ERROR: PERIPLUS_EMAIL or PERIPLUS_PASSWORD environment variables are missing or empty.");
-        }
 
         // 2. Navigate to Periplus
         driver.get("https://www.periplus.com/");
