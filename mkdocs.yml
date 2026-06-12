@@ -1,1 +1,15 @@
-site_name: My Docs
+site_name: Periplus QA Documentation
+site_description: Shopping Cart Test Plan and Automation
+site_author: Your Name
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - toc.integrate
+
+nav:
+  - Introduction: index.md
+  - 1. Test Case Components: components.md
+  - 2. Core Test Cases: core-tests.md
+  - 3. Extended Coverage Matrix: extended-matrix.md
