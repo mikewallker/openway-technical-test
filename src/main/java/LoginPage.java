@@ -1,18 +1,22 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 
 public class LoginPage {
+    private static final String LOGIN_URL = "https://www.periplus.com/account/login";
+
     private WebDriver driver;
     private WebDriverWait wait;
 
-    // Locators — XPath with normalize-space is resilient to whitespace/case variants
-    // and matches both "Sign In" and " Sign In " (padded text in rendered nav)
-    private By signInLink = By.xpath("//a[normalize-space(.)='Sign In']");
+    // Locators
     private By emailField = By.name("email");
     private By passwordField = By.name("password");
     private By loginButton = By.id("button-login");
@@ -24,27 +28,35 @@ public class LoginPage {
     }
 
     public void login(String email, String password) {
-        // Wait for the page body to be fully visible before hunting for the nav link
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
+        // Navigate directly to the login page — bypasses nav-link click entirely.
+        // This is immune to bot-detection page differences and popup overlays.
+        System.out.println("Navigating directly to login page: " + LOGIN_URL);
+        driver.get(LOGIN_URL);
 
-        // Wait for the Sign In link to be present and clickable
-        WebElement signIn = wait.until(ExpectedConditions.elementToBeClickable(signInLink));
+        // Take a screenshot immediately after navigation for CI debugging
+        takeScreenshot("01_login_page_loaded");
 
-        // Scroll the element into view, then attempt a normal click.
-        // Fall back to a JavaScript click if the element is obscured (e.g. by a banner).
-        try {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", signIn);
-            signIn.click();
-        } catch (Exception e) {
-            System.out.println("Normal click failed, using JS click: " + e.getMessage());
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", signIn);
-        }
-
+        // Wait for the email field to appear (confirms the login form is rendered)
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailField)).sendKeys(email);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(loginButton).click();
 
-        // Wait for login to complete
+        // Take a screenshot after submitting to capture any errors
+        takeScreenshot("02_after_login_submit");
+
+        // Wait for login to complete — search box visible means we are on the home page
         wait.until(ExpectedConditions.visibilityOfElementLocated(searchBox));
+    }
+
+    private void takeScreenshot(String name) {
+        try {
+            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File dest = new File("target/screenshots/" + name + ".png");
+            dest.getParentFile().mkdirs();
+            Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Screenshot saved: " + dest.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Could not save screenshot: " + e.getMessage());
+        }
     }
 }
