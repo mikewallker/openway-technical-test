@@ -30,7 +30,16 @@ public class PeriplusCartTest {
             options.addArguments("--disable-gpu");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36");
+            // Prevent site from detecting headless/automation
+            options.addArguments("--disable-blink-features=AutomationControlled");
+            options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36");
+            options.setExperimentalOption("excludeSwitches", java.util.Arrays.asList("enable-automation"));
+            options.setExperimentalOption("useAutomationExtension", false);
+            // Additional stability flags
+            options.addArguments("--remote-debugging-port=9222");
+            options.addArguments("--disable-extensions");
+            options.addArguments("--enable-logging");
+            options.addArguments("--disable-infobars");
             System.out.println("Running in Headless Mode on CI/CD");
         } else {
             // Local Environment: Open the physical browser
